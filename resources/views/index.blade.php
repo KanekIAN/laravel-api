@@ -13,8 +13,6 @@
 <body class="bg-light">
     <main class="container">
 
-        
-        <!-- START DATA -->
         <div class="my-3 p-3 bg-body rounded shadow-sm">
             <table class="table table-striped">
                 <thead>
@@ -34,30 +32,51 @@
                     @foreach ($data as $item)
                     <tr>
                         <td>{{ $i }}</td>
-                        <td>{{ $item['suhu' ] }}</td>
-                        <td>{{ $item['kelembapan' ] }}</td>
-                        <td>{{ $item['api' ] }}</td>
-                        <td>{{ $item['asap' ] }}</td>
-                        <td>{{ $item['motion' ] }}</td>
-                        <td>{{ $item['pintu' ] }}</td>
-                        <td>{{ $item['buzzer' ] }}</td>
-
+                        <td>{{ $item['suhu'] }}</td>
+                        <td>{{ $item['kelembapan'] }}</td>
+                        <td>
+                            @if ($item['api'] == 1)
+                                API TERDETEKSI !
+                            @else
+                                Tidak Ada
+                            @endif
+                        </td>
+                        <td>
+                            @if ($item['asap'] == 1)
+                                ASAP TERDETEKSI !
+                            @else
+                                Tidak Ada
+                            @endif
+                        </td>
+                        <td>
+                            @if ($item['motion'] == 1)
+                                Ada Orang
+                            @else
+                                Tidak Ada Orang
+                            @endif
+                        </td>
+                        <td>
+                            @if ($item['pintu'] == 1)
+                                Pintu Terbuka !
+                            @else
+                                Pintu Tertutup
+                            @endif
+                        </td>
+                        <td>
+                            @if ($item['buzzer'] == 1)
+                                MENYALA !
+                            @else
+                                Normal
+                            @endif
+                        </td>
                     </tr>
                     <?php $i++ ?>
                     @endforeach
-                    
                 </tbody>
+                
             </table>
 
         </div>
-        <!-- AKHIR DATA -->
-
-
-
-
-
-
-
 
         
     </main>

@@ -13,7 +13,12 @@ class SensorController1 extends Controller
     public function index()
     {
         $client = new Client();
-        $url = "http://localhost:8000/api/sensor";
+        $url = "http://192.168.18.5:8000/api/sensor";
+        // $url = "http://172.25.113.183:8000/api/sensor";
+        // $url = "http://192.168.1.149:8000/api/sensor";
+        // $url = "http://192.168.11.116:8000/api/sensor";
+        // $url = "http://192.168.2.226:8000/api/sensor";
+        // $url = "http://192.168.11.67:8000/api/sensor";
         $response = $client->request('GET', $url);
         $content = $response->getBody()->getContents();
         $contentArray = json_decode($content, true);
@@ -21,51 +26,4 @@ class SensorController1 extends Controller
         return view('index', ['data'=>$data]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }
